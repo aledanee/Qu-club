@@ -21,31 +21,16 @@ CREATE TABLE users (
 
 
 
-CREATE TABLE users (
-    user_id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    email VARCHAR(50) UNIQUE NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
-    role ENUM('SKS_ADMIN', 'CLUB_MANAGER', 'REGISTERED_USER') NOT NULL,
+CREATE TABLE clubs (
+    club_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 
 
 
-CREATE TABLE activities (
-    activity_id INT AUTO_INCREMENT PRIMARY KEY,
-    club_id INT NOT NULL,
-    title VARCHAR(100) NOT NULL,
-    description TEXT,
-    status ENUM('PENDING', 'APPROVED', 'REJECTED') NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (club_id) REFERENCES clubs(club_id)
-);
-
-
-
-
 
 CREATE TABLE activities (
     activity_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -56,6 +41,20 @@ CREATE TABLE activities (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (club_id) REFERENCES clubs(club_id)
 );
+
+
+
+
+
+CREATE TABLE notifications (
+    notification_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    message TEXT NOT NULL,
+    read_status BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
 
 
 
