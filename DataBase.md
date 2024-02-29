@@ -78,3 +78,61 @@ CREATE INDEX idx_activities_status ON activities(status);
 
 Step 5: Testing
 After creating these tables, insert some test data and try out some queries to ensure everything is working as expected.
+
+
+
+
+
+testing
+-- Insert Users
+INSERT INTO users (username, email, password_hash, role) VALUES
+('admin1', 'admin1@sks.com', 'hash1', 'SKS_ADMIN'),
+('manager1', 'manager1@club.com', 'hash2', 'CLUB_MANAGER'),
+('user1', 'user1@site.com', 'hash3', 'REGISTERED_USER');
+
+-- Insert Clubs
+INSERT INTO clubs (name, description, manager_id) VALUES
+('Chess Club', 'A club for chess enthusiasts.', (SELECT user_id FROM users WHERE username = 'manager1')),
+('Book Club', 'A club for people who love reading.', NULL);
+
+-- Insert Activities
+INSERT INTO activities (club_id, title, description, status) VALUES
+((SELECT club_id FROM clubs WHERE name = 'Chess Club'), 'Weekly Chess Tournament', 'A tournament for all members.', 'APPROVED'),
+((SELECT club_id FROM clubs WHERE name = 'Book Club'), 'Monthly Book Discussion', 'Discussion on the selected book of the month.', 'PENDING');
+
+-- Insert Notifications
+INSERT INTO notifications (user_id, message, read_status) VALUES
+((SELECT user_id FROM users WHERE username = 'user1'), 'Welcome to the platform!', FALSE);
+
+
+Test Queries
+
+Retrieve all activities of a specific club:
+SELECT a.title, a.description
+FROM activities a
+JOIN clubs c ON a.club_id = c.club_id
+WHERE c.name = 'Chess Club';
+
+
+Find all notifications for a specific user:
+SELECT n.message, n.read_status
+FROM notifications n
+JOIN users u ON n.user_id = u.user_id
+WHERE u.username = 'user1';
+
+Check the role-based data retrieval (e.g., fetching all CLUB_MANAGERs):
+SELECT username, email
+FROM users
+WHERE role = 'CLUB_MANAGER';
+
+
+Verify indexing efficiency (this doesn't return a result but should run efficiently due to the index on status):
+EXPLAIN SELECT * FROM activities WHERE status = 'APPROVED';
+
+
+Update a club manager and observe the cascading effects (no actual effect in this schema, but good to understand the structure):
+UPDATE clubs SET manager_id = (SELECT user_id FROM users WHERE username = 'admin1') WHERE name = 'Book Club';
+
+
+
+
