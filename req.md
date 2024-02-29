@@ -37,12 +37,16 @@ GET /notifications: Receive notifications on changes.
 DELETE /activities/{activity_id}: Delete inappropriate activities.
 GET /clubs/search: Search club pages.
 POST /activities/announce: Announce all activities.
+
+
 2. Registered User
 Endpoints:
 
 GET /clubs/search: Search clubs.
 GET /activities/weekly: Display weekly activity table.
 GET /clubs/{club_id}: Display club main page.
+
+
 3. Club Manager
 Endpoints:
 
@@ -51,6 +55,8 @@ POST /activities/{activity_id}/publish: Publish an activity post.
 PUT /activities/{activity_id}: Edit an activity post.
 DELETE /activities/{activity_id}: Delete an activity post.
 GET /notifications: Receive notifications.
+
+
 Models:
 
 Club: Represents the club information (e.g., name, description).
@@ -79,6 +85,7 @@ Plan the overall system architecture, deciding on how the frontend and backend w
 Technology Stack Confirmation:
 
 Confirm that FastAPI for the backend, MySQL for the database, and Figma for frontend design are the best choices based on your requirements. Also, decide on the frontend technology you will use to implement the Figma designs.
+
 Phase 2: Backend Development
 Setup Development Environment:
 
@@ -91,6 +98,8 @@ Database Integration:
 
 Design and implement your MySQL database schema.
 Integrate the database with your FastAPI backend to ensure data persistence and retrieval.
+
+
 Phase 3: Frontend Development
 Figma Design Implementation:
 
@@ -100,6 +109,8 @@ Frontend Integration:
 
 Connect your frontend with the FastAPI backend, ensuring that the frontend can consume the API endpoints effectively.
 Implement dynamic data rendering, form submissions, and interactive UI elements based on your requirements.
+
+
 Phase 4: Testing
 Unit and Integration Testing:
 
@@ -109,6 +120,8 @@ User Acceptance Testing (UAT):
 
 Involve stakeholders or potential users to test the system in a staging environment.
 Gather feedback and make any necessary adjustments.
+
+
 Phase 5: Deployment and Maintenance
 Deployment:
 
