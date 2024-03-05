@@ -98,3 +98,38 @@ Alternative Flows:
 Postconditions:
 
     The activity post is created, updated, or deleted as requested.
+
+
+
+
+
+Use Case: Manage Activity Posts with Approval (Club Manager)
+
+Actor: Club Manager
+
+Description: The Club Manager initiates changes to activity posts, including creation, editing, or deletion. However, these changes must be approved by an SKS Admin before they go live on the system.
+
+Preconditions:
+
+    The Club Manager is logged into the system.
+    The Club Manager has the necessary permissions to propose changes to activity posts.
+
+Main Flow:
+
+    The Club Manager selects the option to manage activity posts.
+    The system presents options to create a new post, edit an existing post, or delete a post.
+    The Club Manager submits the proposed changes for approval.
+    An approval request is sent to the SKS Admin.
+    The SKS Admin reviews the request and either approves, rejects, or requests further information.
+    The Club Manager receives a notification regarding the decision.
+    If approved, the system updates the activity post accordingly.
+
+Alternative Flows:
+
+    If the Club Manager decides to cancel the action before submission, no changes are made or submitted for approval.
+    If the SKS Admin requests additional information, the Club Manager provides the necessary details, and the review process repeats.
+
+Postconditions:
+
+    If approved, the activity post is created, updated, or deleted as per the Club Manager's request and is visible in the system.
+    If rejected, the proposed changes are not implemented, and the activity post remains unchanged.
