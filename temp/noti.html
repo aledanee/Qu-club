@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="mt-5">Select User</h2>
+                <select id="userIdSelect" class="form-control mb-4">
+                    <!-- User IDs will be populated here -->
+                    <!-- Example: <option value="1">User 1</option> -->
+                </select>
+            </div>
+            <div class="col-md-8">
+                <h2>Notifications</h2>
+                <ul id="notificationsList" class="list-group mb-4"></ul>
+            </div>
+            <div class="col-md-4">
+                <h2>Post Notification</h2>
+                <form id="notificationForm">
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <input type="text" class="form-control" id="message" name="message" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Fetch users and populate the user selection dropdown
+        function fetchUsers() {
+            fetch('http://127.0.0.1:8000/usersG/', {
+                method: 'GET',
+                headers: {
+                    'accept': 'application/json',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const userIdSelect = document.getElementById('userIdSelect');
+                userIdSelect.innerHTML = ''; // Clear existing options
+                data.forEach(user => {
+                    const option = document.createElement('option');
+                    option.value = user.user_id;
+                    option.textContent = `${user.username} (${user.role})`;
+                    userIdSelect.appendChild(option);
+                });
+            })
+            .catch((error) => {
+                console.error('Error fetching users:', error);
+            });
+        }
+    
+        document.getElementById('notificationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const userId = document.getElementById('userIdSelect').value;
+            const data = {
+                message: document.getElementById('message').value,
+                read_status: false
+            };
+    
+            fetch(`http://127.0.0.1:8000/notifications/?user_id=${userId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'accept': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(() => {
+                alert('Notification posted successfully!');
+                fetchNotifications(); // Refresh the notifications list
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Failed to post the notification.');
+            });
+        });
+    
+        function fetchNotifications() {
+            const userId = document.getElementById('userIdSelect').value;
+            fetch(`http://127.0.0.1:8000/notifications/?user_id=${userId}`, {
+                method: 'GET',
+                headers: {
+                    'accept': 'application/json',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const notificationsList = document.getElementById('notificationsList');
+                notificationsList.innerHTML = '';
+                data.forEach(notification => {
+                    const li = document.createElement('li');
+                    li.classList.add('list-group-item');
+                    li.textContent = notification.message;
+                    notificationsList.appendChild(li);
+                });
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    
+        // Add event listener to fetch notifications when a new user is selected
+        document.getElementById('userIdSelect').addEventListener('change', fetchNotifications);
+    
+        // Initial calls to fetch users and setup the page
+        fetchUsers();
+        // fetchNotifications(); // Optionally call this if you want to load notifications for the first user immediately
+    </script>
+    
+</body>
+</html>
