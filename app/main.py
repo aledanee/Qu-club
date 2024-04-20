@@ -5,19 +5,20 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from sqlalchemy import text
 from app.db.session import SessionLocal
-from app.api.V1.userR import router as userR_router
-from app.api.V1.auth import router as auth_router
-from app.api.V1.notification import router as notification_router
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.V1.userG import router as user_router
-from app.api.V1.club import router as club_router
-from app.api.V1.activity import router as activity_router
+
+from app.api import activity, auth, club, notification, userG, userR
+# from app.api.V1.userR import router as userR_router
+# from app.api.V1.auth import router as auth_router
+# from app.api.V1.notification import router as notification_router
+# from app.api.V1.userG import router as user_router
+# from app.api.V1.club import router as club_router
+# from app.api.V1.activity import router as activity_router
 # from app.api.V1.joinClub import router as club_router  # Assuming this is your import path
 # from app.api.V1 import joinClub as club_router
 # from app.api.joinClub import router as join_club_router  # Ensure this is the router instance
 
 app = fastapi.FastAPI()
-
 
 # Set up CORS
 app.add_middleware(
@@ -43,12 +44,12 @@ async def get_db() -> AsyncSession:
 
 
 
-app.include_router(user_router, tags=["v1-user"])
-app.include_router(auth_router, tags=["v1-user"])
-app.include_router(notification_router, tags=["v1-user"])
-app.include_router(userR_router, tags=["v1-user"])
-app.include_router(club_router, tags=["v1-club"])
-app.include_router(activity_router, tags=["v1-user"])
+app.include_router(userG.router, tags=["v1-user"])
+app.include_router(auth.router, tags=["v1-user"])
+app.include_router(notification.router, tags=["v1-user"])
+app.include_router(userR.router, tags=["v1-user"])
+app.include_router(club.router, tags=["v1-club"])
+app.include_router(activity.router, tags=["v1-user"])
 # app.include_router(club_router, prefix="/api/v1/club", tags=["v1-club"])
 # app.include_router(club_router, prefix="/api/v1/joinClub", tags=["v1-club"])
 
