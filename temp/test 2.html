@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat Page</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  /* Ensuring the font from Google Fonts is applied */
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+  /* Custom styles for the layout */
+  .container {
+    max-width: 640px;
+    margin: auto;
+  }
+  .chat-history {
+    height: 300px; /* Adjust based on actual content */
+    overflow-y: auto;
+    border: 2px solid black;
+  }
+  .chat-input {
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+  }
+  .chat-input input {
+    flex-grow: 1;
+    padding: 1rem;
+    border: none;
+    outline: none;
+  }
+  .chat-input button {
+    padding: 1rem;
+    background: black;
+    color: white;
+    border: none;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+</style>
+</head>
+<body>
+
+<header class="bg-gray-100 p-5 text-right">
+  <button class="bg-pink-300 py-2 px-4 rounded">Login</button>
+  <button class="bg-pink-300 ml-2 py-2 px-4 rounded">Sign Up</button>
+</header>
+
+<main class="container my-10">
+  <section class="mb-8">
+    <div class="chat-history bg-gray-200 p-5">
+      <!-- Chat content would go here -->
+    </div>
+    <div class="chat-input mt-4">
+      <input type="text" placeholder="User Input">
+      <button><i class="fas fa-arrow-right"></i></button>
+    </div>
+  </section>
+
+  <section class="footer-grid mt-12 p-5 bg-gray-200">
+    <div>
+      <h3 class="font-bold mb-2">Our Policy</h3>
+      <p>Terms & Conditions</p>
+      <p>Privacy Policy</p>
+      <p>Legal Notice</p>
+    </div>
+    <div>
+      <h3 class="font-bold mb-2">More Information</h3>
+      <p>About Us</p>
+      <p>FAQs</p>
+      <p>Resources</p>
+      <p>Partners</p>
+    </div>
+    <div>
+      <h3 class="font-bold mb-2">Contact Information</h3>
+      <p>Contact Us:</p>
+      <p>Contact a Professional</p>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

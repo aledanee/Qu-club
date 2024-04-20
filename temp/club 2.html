@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="mt-5">Add New Club</h2>
+                <form id="clubForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Add Club</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h2 class="mt-5">Clubs</h2>
+                <ul id="clubsList" class="list-group">
+                    <!-- Clubs will be listed here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.getElementById('clubForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const data = {
+                name: document.getElementById('name').value,
+                description: document.getElementById('description').value
+            };
+
+            fetch('http://127.0.0.1:8000/clubs/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'accept': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(() => {
+                alert('Club added successfully!');
+                fetchClubs(); // Refresh the clubs list
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Failed to add the club.');
+            });
+        });
+
+        function fetchClubs() {
+            fetch('http://127.0.0.1:8000/clubs/', {
+                method: 'GET',
+                headers: {
+                    'accept': 'application/json',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const clubsList = document.getElementById('clubsList');
+                clubsList.innerHTML = ''; // Clear current clubs
+                data.forEach(club => {
+                    const li = document.createElement('li');
+                    li.classList.add('list-group-item');
+                    li.textContent = `${club.name}: ${club.description}`;
+                    clubsList.appendChild(li);
+                });
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+
+        // Initial fetch of clubs
+        fetchClubs();
+    </script>
+</body>
+</html>
