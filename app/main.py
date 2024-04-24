@@ -46,10 +46,10 @@ async def get_db() -> AsyncSession:
 
 app.include_router(userG.router, tags=["v1-user"])
 app.include_router(auth.router, tags=["v1-user"])
-app.include_router(notification.router, tags=["v1-user"])
+app.include_router(notification.router, tags=["v1-s"])
 app.include_router(userR.router, tags=["v1-user"])
-app.include_router(club.router, tags=["v1-club"])
-app.include_router(activity.router, tags=["v1-user"])
+app.include_router(club.router, tags=["v1-s"])
+app.include_router(activity.router, tags=["v1-s"])
 # app.include_router(club_router, prefix="/api/v1/club", tags=["v1-club"])
 # app.include_router(club_router, prefix="/api/v1/joinClub", tags=["v1-club"])
 
