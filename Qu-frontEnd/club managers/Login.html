@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        zoom: 0.84; 
+        background-color: #d9d9d9;
+    }
+    </style>
+  </head>
+  <body>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+      <div class="login-components">
+        
+    
+    
+      <div class="overlap">
+        <div class="background">
+          <div class="overlap-group">
+            <div class="rectangle"></div>
+
+            <div class="sign-up" onclick="signUp()">Sign Up</div>
+          </div>
+        </div>
+        <div class="sign-in-components">
+          <div class="text-wrapper-2">Login</div>
+          <div class="forget-password" onclick="forgetPassword()" >
+          <a style="margin-right: 180px;"> Forget Password </a> 
+          </div>
+          <p class="p">Sign in to your account</p>
+        </div>
+        <div class="labels">
+          <div class="text-wrapper-5"><a style="margin-left: 0px;">Enter Email </a></div>
+          <div class="email-button">
+            <input type="email" class="email-input" placeholder="Email"  style="background-color: #d9d9d9;  border: none;" />
+         
+            <img class="email" style="height: 14px; width:18px; margin-top:5px;margin-left:5px;" src="img/12.png" />
+            <div class="rectangle-2"></div>
+                <br>
+          </div>
+           <br> 
+           
+           <div class="text-wrapper-6" style="margin-top: 70px;">
+            Enter Password
+            <br>
+          </div>
+          <div class="password-button" style="margin-top: 20px;">
+            <input
+              type="password"
+              class="password-input"
+              placeholder="Password"
+              style="background-color: #d9d9d9; border: none;"
+              
+            />
+            <img class="password" style="height: 23px; width:26px; margin-top:0px;" src="img/ps.png" />
+            <div class="rectangle-2"></div>
+          </div>
+          
+          
+         
+          <button class="login-button" style="margin-top: 10px;" >
+            <div class="div-wrapper">
+              <div class="text-wrapper-8"><a href="index.html" style="text-align: none; text-decoration: none; color:white">Login </a></div>
+            </div>
+          </button>
+          <div class="make-new-account" style="margin-top: 10px;" >
+            <a href="signup.html" style="text-align: none; text-decoration: none; color:black"> Make new account</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    <script>
+      function login() {
+        var email = document.querySelector(".email-input").value;
+        var password = document.querySelector(".password-input").value;
+
+        
+
+        alert("Email: " + email + "\nPassword: " + password);
+      }
+
+      function forgetPassword() {
+        
+        alert("Forget Password clicked!");
+      }
+
+      function signUp() {
+        
+        alert("Sign Up clicked!");
+      }
+
+    </script>
+  </body>
+</html>

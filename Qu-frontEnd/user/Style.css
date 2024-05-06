@@ -1,0 +1,344 @@
+.login-components {
+  width: 373px;
+  height: 449px;
+}
+
+.login-components .overlap {
+  position: relative;
+  width: 360px;
+  height: 442px;
+}
+
+.login-components .background {
+  position: absolute;
+  width: 360px;
+  height: 442px;
+  top: 0;
+  left: 0;
+}
+
+.login-components .overlap-group {
+  position: relative;
+  width: 366px;
+  height: 449px;
+  background-color: #177db8;
+}
+
+.login-components .rectangle {
+  position: absolute;
+  width: 360px;
+  height: 442px;
+  top: 0;
+  left: 0;
+  background-color: #d9d9d9;
+}
+
+.login-components .text-wrapper {
+  position: absolute;
+  top: 398px;
+  left: 95px;
+  font-family: "Anonymous Pro-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+
+.login-components .div {
+  position: absolute;
+  top: 416px;
+  left: 158px;
+  font-family: "Anonymous Pro-Bold", Helvetica;
+  font-weight: 700;
+  color: #177db8;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.login-components .sign-in-components {
+  position: absolute;
+  width: 278px;
+  height: 294px;
+  top: 42px;
+  left: 38px;
+}
+
+.login-components .text-wrapper-2 {
+ 
+  font-family: "Anonymous Pro-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 37px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.login-components .text-wrapper-3 {
+  position: absolute;
+  width: 66px;
+  top: 286px;
+  left: 0;
+  font-family: "Anonymous Pro-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 8px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.login-components .p {
+  position: absolute;
+  width: 260px;
+  top: 64px;
+  left: 12px;
+  font-family: "Anonymous Pro-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.login-components .labels {
+  position: absolute;
+  width: 292px;
+  height: 103px;
+  top: 213px;
+  left: 37px;
+}
+
+.login-components .email-button {
+  position: absolute;
+  width: 44px;
+  height: 16px;
+  top: 13px;
+  left: 49px;
+}
+
+.login-components .text-wrapper-4 {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  font-family: "Anonymous Pro-Bold", Helvetica;
+  font-weight: 700;
+  color: #0000004c;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.login-components .rectangle-2 {
+  position: absolute;
+  width: 292px;
+  height: 1px;
+  top: 27px;
+  left: -49px;
+  background-color: #2b1173;
+}
+
+.login-components .email {
+  position: absolute;
+  width: 26px;
+  height: 30px;
+  top: -4px;
+  left: -40px;
+  object-fit: cover;
+}
+
+.login-components .text-wrapper-5 {
+  top: -16px;
+  left: -30px;
+  position: absolute;
+  width: 130px;
+  font-family: "Anonymous Pro-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.login-components .password-button {
+  position: absolute;
+  width: 44px;
+  height: 16px;
+  top: 13px;
+  left: 49px;
+}
+
+.login-components .rectangle-3 {
+   position: absolute;
+  width: 292px;
+  height: 1px;
+  top: 27px;
+  left: -49px;
+  background-color: #2b1173;
+}
+
+.login-components .text-wrapper-6 {
+  top: -16px;
+  left: -18px;
+  position: absolute;
+  width: 130px;
+  font-family: "Anonymous Pro-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.login-components .password {
+position: absolute;
+  width: 26px;
+  height: 30px;
+  top: -4px;
+  left: -40px;
+  object-fit: cover;
+}
+
+.login-components .text-wrapper-7 {
+  position: absolute;
+  top: 12px;
+  left: 49px;
+  font-family: "Anonymous Pro-Bold", Helvetica;
+  font-weight: 700;
+  color: #0000004c;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.login-components .login-button {
+  all: unset;
+  box-sizing: border-box;
+  width: 50px;
+  height: 18px;
+  top: 160px;
+  position: absolute;
+  left: 121px;
+}
+
+.login-components .div-wrapper {
+  position: relative;
+  width: 292px;
+  height: 41px;
+  top: -12px;
+  left: -121px;
+  background-color: #177db8;
+}
+
+.login-components .text-wrapper-8 {
+  top: 11px;
+  font-family: "Anonymous Pro-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  position: absolute;
+  left: 121px;
+}
+.login-components .password-button {
+position: absolute;
+width: 292px;
+height: auto; 
+top: 62px;
+left: 9;
+}
+
+.login-components .forget-password {
+position: absolute;
+width: 100%;
+top: calc(100% + 0px); /* Position below the password button */
+font-family: "Anonymous Pro-Bold", Helvetica;
+font-weight: 700;
+color: #000000;
+font-size: 12px;
+text-align: center;
+cursor: pointer;
+}
+
+.login-components .labels {
+position: absolute;
+width: 292px;
+top: 213px;
+left: 37px;
+}
+.make-new-account {
+  position: absolute;
+  width: 100%;
+  top: calc(100% + 95px); /* Position below the password button */
+  font-family: "Anonymous Pro-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.make-new-account:hover {
+  text-decoration: underline; /* Underline the text on hover */
+}
+.forget-password,
+.make-new-account {
+  position: absolute;
+  width: 100%;
+  font-family: "Anonymous Pro-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s; /* Add transition effect */
+}
+
+.forget-password:hover,
+.make-new-account:hover {
+  text-decoration: underline; /* Underline the text on hover */
+  color: #2b1274; /* Change color on hover */
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+.login-button {
+  all: unset;
+  box-sizing: border-box;
+  width: 50px;
+  height: 18px;
+  top: 160px;
+  position: absolute;
+  left: 121px;
+  background-color: #177db8; /* Initial background color */
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Add transition for background color and transform */
+}
+
+.login-button:hover {
+  cursor: pointer;
+  background-color: #125d8c; /* Change background color on hover */
+  transform: scale(1.05); /* Slightly scale up on hover */
+}

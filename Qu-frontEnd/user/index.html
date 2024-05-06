@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-qXvsKOgZgkLzchwW6QjwI5gr9P71zpwALxipEFGJWfiSld7tRJiRQw8hSzvmW9MnbmCmjMm0zsH0n/vcMtlxRg==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
+    <title>Qclub</title>
+    <style>
+        body {
+            zoom: 0.78; 
+        }
+        
+          a {
+            text-decoration: none;
+            
+            color: black;
+          }
+          .club-box {
+            cursor: pointer;
+        }
+        .error-message {
+            color: red;
+        }
+
+#notificationsMenu {
+  position: absolute;
+  top: 150px; 
+  right: 345px;
+  width: 200px;
+  height: 100px;
+  background-color: #D9D9D9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 1;
+}
+
+#notificationsMenu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#notificationsMenu ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  
+}
+
+#notificationsMenu ul li:last-child {
+  border-bottom: none;
+}
+
+#notificationsMenu ul li:hover {
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+        
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+
+
+  
+
+
+
+  <div  style="width: 1600px; height: 1483px; position: relative; background: #D9D9D9">
+    <div style="width: 1024px; padding-left: 40px; padding-right: 40px; padding-top: 10px; padding-bottom: 10px; left: 281px; top: 73px; position: absolute; background: #D9D9D9; box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.15); border-radius: 10px; display: flex; align-items: center; justify-content: space-between;">
+        
+        <img style="width: 103px; height: 44px; margin-right: 20px;" src="img/logo.jpeg" />
+        
+       
+        <div class="search-box" style="position: relative; width: 223px; height: 29px; border-radius: 45px; background: #D9D9D9; margin-right: 20px;">
+            <input class="search-input" type="text" id="searchInput" onkeyup="search()" style="position: absolute; width: 207px; height: 26px; background: white; border-radius: 19px; top: 1px; left: 0; padding-left: 40px; color: black; font-size: 15px; font-family: Montserrat; font-weight: 400; word-wrap: break-word;" placeholder="Search...">
+            <div id="searchIcon" style="position: absolute; top: 5px; left: 10px;">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        
+       
+        <div style="margin-right: 20px;">
+            <div id="clubDropdown" style="height: 44px; border-radius: 10px; overflow: hidden; display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                <i class="fas fa-club"></i>
+                <div style="color: black; font-size: 12px; font-family: Montserrat; font-weight: 400; word-wrap: break-word;" onclick="toggleClubDropdown()">Clubs <span style="font-size: 10px;">▼</span></div>
+            </div>
+            <div id="clubDropdownContent" style="position: absolute; top: 70px; right: 460px; width: 150px; height: 130px; background-color: #D9D9D9; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); display: none; z-index: 1;">
+                <a href="Turkish Club.html" style="text-decoration: none"><br>&nbsp; Turkish Club</a><br>
+                <a href="Sports Club.html" style="text-decoration: none;"><br>&nbsp; Sports Club</a><br>
+                <a href="Music Club.html" style="text-decoration: none;"><br>&nbsp; Music Club</a>
+            </div>
+        </div>
+    
+
+        <div>
+            <a href="index.html" style="text-decoration: none; color: black;">
+                <div style="height: 44px; border-radius: 10px; overflow: hidden; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-home"></i>
+                    <div style="color: black; font-size: 12px; font-family: Montserrat; font-weight: 400; word-wrap: break-word;">Home</div>
+                </div>
+            </a>
+        </div>
+        
+     
+        <div id="profileDropdown" style="margin-right: 20px;">
+            <div style="height: 44px; border-radius: 10px; overflow: hidden; display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                <i class="fas fa-user"></i>
+                <div style="color: black; font-size: 12px; font-family: Montserrat; font-weight: 400; word-wrap: break-word;">Profile</div>
+            </div>
+        
+            <div id="profileDropdownContent" style="position: absolute; top: 70px; right: 250px; width: 150px; height: 100px; background-color: #D9D9D9; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); display: none; z-index: 1;">
+                <a href="Reset password.html" onclick="resetPassword()" style="text-decoration: none;" ><br>
+                    &nbsp;  Reset Password</a> 
+                <br>
+                <a href="#" onclick="confirmSignOut()" style="text-decoration: none;" ><br> &nbsp;
+                    Sign Out</a>
+            </div>
+        </div>
+        
+       
+        <div style="margin-right: 20px;">
+            <div id="notificationsIcon" style="height: 44px; border-radius: 10px; overflow: hidden; display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                <i class="fas fa-bell"></i>
+                <div id="notificationsText" style="color: black; font-size: 12px; font-family: Montserrat; font-weight: 400; word-wrap: break-word;">Notifications</div>
+            </div>
+        </div>
+        
+      
+        <div>
+            <a href="contact.html" style="text-decoration: none; color: black;">
+                <div style="height: 44px; border-radius: 10px; overflow: hidden; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-envelope"></i>
+                    <div style="color: black; font-size: 12px; font-family: Montserrat; font-weight: 400; word-wrap: break-word;">Contact</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div id="notificationsMenu">
+   
+    <ul id="notificationItems">
+ 
+    </ul>
+   
+    <div id="noNotifications" style="display: none; color: #555; font-size: 14px; font-family: Montserrat; font-weight: 400; word-wrap: break-word; text-align: center; padding: 10px;">
+    <br>
+    <br>
+      No notifications
+    </div>
+  </div>
+
+
+
+
+  
+
+  
+<script>
+    function search() {
+        let searchBar = document.querySelector('.search-input').value.toUpperCase();
+        let clubbox = document.querySelectorAll('.club-box');
+        let clubName = document.querySelectorAll('.club-Name');
+        let clubDate = document.querySelectorAll('.club-Date');
+        let clubCategory = document.querySelectorAll('.club-Category');
+    
+        for (let i = 0; i < clubName.length; i++) {
+            let nameMatch = clubName[i].innerHTML.toUpperCase().indexOf(searchBar) >= 0;
+            let dateMatch = clubDate[i].innerHTML.toUpperCase().indexOf(searchBar) >= 0;
+            let categoryMatch = clubCategory[i].innerHTML.toUpperCase().indexOf(searchBar) >= 0;
+    
+            if (nameMatch || dateMatch || categoryMatch) {
+                clubbox[i].style.display = "";
+            } else {
+                clubbox[i].style.display = "none";
+            }
+        }
+    }
+    
+    function handleEnterKeyPress(event) {
+        if (event.key === "Enter") {
+            search();
+        }
+    }
+    
+    document.getElementById("searchInput").addEventListener("keypress", handleEnterKeyPress);
+    </script>
+    
+  
+    
+
+  
+<script>
+ 
+  function toggleClubDropdown() {
+      var clubDropdownContent = document.getElementById('clubDropdownContent');
+      if (clubDropdownContent.style.display === 'none') {
+          clubDropdownContent.style.display = 'block'; 
+      } else {
+          clubDropdownContent.style.display = 'none'; 
+      }
+  }
+  </script>
+
+
+  
+  <script>
+  
+    function toggleProfileDropdown() {
+        var profileDropdown = document.getElementById('profileDropdownContent');
+        if (profileDropdown.style.display === 'none' || profileDropdown.style.display === '') {
+            profileDropdown.style.display = 'block';
+        } else {
+            profileDropdown.style.display = 'none';
+        }
+    }
+    
+    
+    function resetPassword() {
+        
+    }
+    
+    
+    function confirmSignOut() {
+        var confirmSignOut = confirm('Are you sure you want to sign out?');
+        if (confirmSignOut) {
+            
+            alert('Signing out...');
+           
+        } else {
+            
+            alert('Sign out canceled.');
+        }
+    }
+    
+   
+    document.getElementById('profileDropdown').addEventListener('click', toggleProfileDropdown);
+    </script>
+    
+<script>
+
+var hasNotifications = false; 
+
+
+function toggleNotifications() {
+    var notificationsMenu = document.getElementById('notificationsMenu');
+    var notificationsText = document.getElementById('notificationsText');
+    var noNotifications = document.getElementById('noNotifications');
+
+    if (notificationsMenu.style.display === 'none') {
+        
+        notificationsMenu.style.display = 'block';
+
+        if (hasNotifications) {
+            
+        } else {
+            noNotifications.style.display = 'block'; 
+        }
+    } else {
+        
+        notificationsMenu.style.display = 'none';
+        noNotifications.style.display = 'none'; 
+    }
+}
+
+document.getElementById('notificationsIcon').addEventListener('click', toggleNotifications);
+</script>
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+    
+    <div style="left: 254px; top: 258px; position: absolute; color: #177DB8; font-size: 20px; font-family: Montserrat; font-weight: 700; word-wrap: break-word">Upcoming Events</div>
+  
+    <div style="left: 254px; top: 258px; position: absolute; color: #177DB8; font-size: 20px; font-family: Montserrat; font-weight: 700; word-wrap: break-word">Upcoming Events</div>
+  
+<div class="club">
+
+<div class="club-box" style="width: 325px; height: 431px; left: 228px; top: 297px; position: absolute">
+
+  <div style="width: 325px; height: 430px; left: 0px; top: 0px; position: absolute; background: #5C6DA7; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 30px; border: 3px black solid"></div>
+  
+  <div style="width: 278px; height: 273px; left: 23px; top: 44px; position: absolute; background: #D9D9D9; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border: 1px black solid"></div>
+  
+  <img style="width: 282px; height: 273px; left: 21px; top: 44px; position: absolute; box-shadow: 4px 4px 4px; filter: blur(4px)" src="img/1.jpeg" />
+
+  <div class="club-Name" style="left: 100px; top: 17px; position: absolute; color: #D9D9D9; font-size: 14px; font-family: Montserrat; font-weight: 700; word-wrap: break-word">Turkish Club
+
+  </div>
+ 
+  <div style="width: 98px; height: 68px; left: 98px; top: 363px; position: absolute">
+   
+    <div style="width: 97px; height: 43px; left: 1px; top: 14px; position: absolute; background: #177DB8; border-radius: 45px"></div>
+  
+    <div  class="club-Date" style="left: 18px; top: 27px; position: absolute; text-align: center; color: #FFF7F5; font-size: 11.10px; font-family: Montserrat; font-weight: 700; line-height: 17.76px; letter-spacing: 0.06px; word-wrap: break-word">March 15th</div>
+
+</div>
+
+<div class="club-Category" style="left: 27px;  top: 327px; position: absolute; color: #FEFEFE; font-size: 14px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">A trip to get acquainted with <br/>new students at Nakkaştepe Park.
+
+</div>
+
+</div>
+
+
+
+
+
+
+<div  class="club-box" style="width: 325px; height: 431px; left: 673px; top: 296px; position: absolute">
+  
+  <div style="width: 325px; height: 430px; left: 0px; top: 0px; position: absolute; background: linear-gradient(180deg, #08CDAA 0%, #059178 46%, #046755 100%); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 30px; border: 3px #2D2D2D solid"></div>
+  
+  <div style="width: 98px; height: 68px; left: 103px; top: 363px; position: absolute">
+    
+    <div style="width: 97px; height: 43px; left: 1px; top: 14px; position: absolute; background: #177DB8; border-radius: 45px"></div>
+   
+    <div class="club-Date" style="left: 18px; top: 27px; position: absolute; text-align: center; color: #FFF7F5; font-size: 11.10px; font-family: Montserrat; font-weight: 700; line-height: 17.76px; letter-spacing: 0.06px; word-wrap: break-word">March 18th</div>
+  
+  </div>
+
+  <div class="club-Category" style="width: 290px; left: 20px; top: 332px; position: absolute; color: #FEFEFE; font-size: 14px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">Uskudar University basketball team<br/> match against Bahçeşehir University team.</div>
+  
+  <div class="club-Name" style="left: 103px; top: 9px; position: absolute; color: #D9D9D9; font-size: 14px; font-family: Montserrat; font-weight: 700; word-wrap: break-word">Sports Club</div>
+  
+  <div style="width: 286px; height: 273px; left: 20px; top: 44px; position: absolute; background: #D9D9D9; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border: 1px black solid"></div>
+  
+  <img style="width: 286px; height: 273px; left: 20px; top: 44px; position: absolute; box-shadow: 4px 4px 4px; border: 1px black solid; filter: blur(4px)" src="img/2.jpeg" />
+
+</div>
+
+
+
+
+
+
+<div class="club-box" style="width: 325px; height: 430px; left: 1082px; top: 297px; position: absolute">
+ 
+  <div style="width: 325px; height: 430px; left: 0px; top: 0px; position: absolute; background: #BDB2B2; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 30px; border: 3px black solid"></div>
+ 
+  <div style="width: 286px; height: 273px; left: 20px; top: 44px; position: absolute; background: #D9D9D9; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border: 1px black solid"></div>
+  
+  <img style="width: 286px; height: 273px; left: 20px; top: 44px; position: absolute; box-shadow: 4px 4px 4px; border: 1px black solid; filter: blur(4px)" src="img/3.jpeg" />
+  
+  <div class="club-Name" style="left: 113px; top: 12px; position: absolute; color: #D9D9D9; font-size: 14px; font-family: Montserrat; font-weight: 700; word-wrap: break-word">Music Club</div>
+  
+  <div style="width: 97px; height: 43px; left: 106px; top: 377px; position: absolute; background: #177DB8; border-radius: 45px"></div>
+  
+  <div class="club-Date" style="left: 122px; top: 390px; position: absolute; text-align: center; color: #FFF7F5; font-size: 11.10px; font-family: Montserrat; font-weight: 700; line-height: 17.76px; letter-spacing: 0.06px; word-wrap: break-word">March 20th</div>
+ 
+  <div class="club-Category" style="width: 297px; left: 20px; top: 332px; position: absolute; color: black; font-size: 14px; font-family: Montserrat; font-weight: 400; line-height: 17.76px; letter-spacing: 0.07px; word-wrap: break-word">Going to the orchestra to attend a performance of Beethoven's Fifth Symphony.</div>
+
+
+</div>
+
+
+</div>
+
+
+   
+ 
+     
+   
+   
+   
+   
+   
+   
+   
+
+
+
+    
+    <div style="width: 1085px; height: 260px; left: 244px; top: 871px; position: absolute; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(129.23, 147.27, 168.44, 0.87) 63%, #6F6E9B 100%); border: 2px black solid; backdrop-filter: blur(4px)"></div>
+    
+    <div style="width: 1085px; height: 260px; left: 244px; top: 1177px; position: absolute; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(129.23, 147.27, 168.44, 0.87) 63%, #6F6E9B 100%); border: 2px black solid; backdrop-filter: blur(4px)"></div>
+    
+    <div style="left: 274px; top: 1297px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">Dear members I would like to announce that the  musical contest presenter will be prof. Clarck    </div>
+    
+    <div style="left: 274px; top: 941px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">Turkish club manager</div>
+    
+    <div style="left: 274px; top: 1238px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">Music club manager</div>
+    
+    <div style="width: 1026px; left: 274px; top: 1000px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">I would like to thank everyone who contributed into the amazing Events that we held this year, Not only that  it was beneficial in terms of learning the language but also the social benefits from such events.</div>
+    
+    <div style="left: 262px; top: 820px; position: absolute; color: #177DB8; font-size: 24px; font-family: Inter; font-weight: 700; word-wrap: break-word">Posts</div>
+  
+  </div>
+
+
+
+
+
+
+
+
+    
+                 
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+            
+    
+
+
+
+    
+ 
+ 
+</body>
+</html>
+
+
